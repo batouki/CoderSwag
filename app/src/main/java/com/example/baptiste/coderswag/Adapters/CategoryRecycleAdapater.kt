@@ -14,14 +14,14 @@ import com.example.baptiste.coderswag.R
 /**
  * Created by Baptiste on 26/02/2018.
  */
-class CategoryRecycleAdapater(val context : Context, val categories : List<Category>) : RecyclerView.Adapter<CategoryRecycleAdapater.Holder>(){
+class CategoryRecycleAdapater(val context : Context, val categories : List<Category>, val itemclick: (Category) -> Unit) : RecyclerView.Adapter<CategoryRecycleAdapater.Holder>(){
     override fun onBindViewHolder(holder: Holder?, position: Int) {
         holder?.bindCategory(categories[position], context)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder {
 
-        val view = LayoutInflater.from(parent?.context).inflate(R.layout.category_list_item, parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.category_list_item, parent,false)
         return Holder(view)
     }
 
@@ -30,7 +30,7 @@ class CategoryRecycleAdapater(val context : Context, val categories : List<Categ
 
     }
 
-    inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView){
+    inner class Holder(itemView: View?, val itemclick: (Category) -> Unit) : RecyclerView.ViewHolder(itemView){
 
             val categoryImage = itemView?.findViewById<ImageView>(R.id.categoryImage)
             val categoryName = itemView?.findViewById<TextView>(R.id.categoryName)

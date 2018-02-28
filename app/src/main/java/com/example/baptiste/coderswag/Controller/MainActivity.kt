@@ -1,5 +1,6 @@
 package com.example.baptiste.coderswag.Controller
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -11,6 +12,7 @@ import com.example.baptiste.coderswag.Model.Category
 import com.example.baptiste.coderswag.R
 import com.example.baptiste.coderswag.R.id.categoryListView
 import com.example.baptiste.coderswag.Services.DataService
+import com.example.baptiste.coderswag.Utilities.EXTRA_CATEGORY
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        adapter = CategoryRecycleAdapater(this, DataService.categories)
+        adapter = CategoryRecycleAdapater(this, DataService.categories) {category ->
+            val productIntent = Intent(this, ProductsActivity::class.java)
+            productIntent.putExtra(EXTRA_CATEGORY)
+            startActivity(productIntent)
+        }
         categoryListView.adapter = adapter as CategoryRecycleAdapater
 
         val layoutManager = LinearLayoutManager(this)
@@ -29,4 +35,3 @@ class MainActivity : AppCompatActivity() {
         categoryListView.setHasFixedSize(true)
         }
     }
-}
