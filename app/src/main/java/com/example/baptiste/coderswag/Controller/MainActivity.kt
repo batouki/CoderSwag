@@ -25,10 +25,10 @@ class MainActivity : AppCompatActivity() {
 
         adapter = CategoryRecycleAdapater(this, DataService.categories) {category ->
             val productIntent = Intent(this, ProductsActivity::class.java)
-            productIntent.putExtra(EXTRA_CATEGORY)
+            productIntent.putExtra(EXTRA_CATEGORY, category.title)
             startActivity(productIntent)
         }
-        categoryListView.adapter = adapter as CategoryRecycleAdapater
+        categoryListView.adapter = adapter
 
         val layoutManager = LinearLayoutManager(this)
         categoryListView.layoutManager = layoutManager

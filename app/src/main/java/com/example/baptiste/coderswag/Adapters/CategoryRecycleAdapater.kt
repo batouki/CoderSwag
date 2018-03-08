@@ -22,7 +22,7 @@ class CategoryRecycleAdapater(val context : Context, val categories : List<Categ
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): Holder {
 
         val view = LayoutInflater.from(context).inflate(R.layout.category_list_item, parent,false)
-        return Holder(view)
+        return Holder(view, itemclick)
     }
 
     override fun getItemCount(): Int {
@@ -39,6 +39,7 @@ class CategoryRecycleAdapater(val context : Context, val categories : List<Categ
             val resourceId = context.resources.getIdentifier(category.image, "drawable", context.packageName)
             categoryImage?.setImageResource(resourceId)
             categoryName?.text = category.title
+            itemView.setOnClickListener { itemclick(category) }
         }
     }
 
