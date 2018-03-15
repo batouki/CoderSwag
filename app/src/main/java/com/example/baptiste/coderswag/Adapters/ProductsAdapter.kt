@@ -27,6 +27,7 @@ class ProductsAdapter(val context: Context, val products: List<Product>, val ite
     override fun onBindViewHolder(holder: ProductHolder?, position: Int) {
         holder?.bindProduct(products[position], context)
     }
+    blablab
 
     inner class ProductHolder(itemView: View?) : RecyclerView.ViewHolder(itemView){
 
