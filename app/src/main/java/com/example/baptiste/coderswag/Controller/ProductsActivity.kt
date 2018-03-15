@@ -21,10 +21,12 @@ class ProductsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_products)
 
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
-        adapter = ProductsAdapter(this, DataService.getProducts(categoryType))
 
-        val detailIntent = Intent(this, DetailActivity::class.java)
-        detailIntent.putExtra(EXTRA_PRODUCT, product.title)
+        adapter = ProductsAdapter(this, DataService.getProducts(categoryType)){product ->
+            val detailIntent = Intent(this, DetailActivity::class.java )
+            detailIntent.putExtra(EXTRA_PRODUCT, product.title)
+            startActivity(detailIntent)
+        }
 
         var spanCount = 2
         val orientation = resources.configuration.orientation

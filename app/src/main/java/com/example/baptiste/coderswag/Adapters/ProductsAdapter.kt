@@ -13,7 +13,7 @@ import com.example.baptiste.coderswag.R
 /**
  * Created by Baptiste on 28/02/2018.
  */
-class ProductsAdapter(val context: Context, val products: List<Product>) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
+class ProductsAdapter(val context: Context, val products: List<Product>, val itemclick : (Product) -> Unit) : RecyclerView.Adapter<ProductsAdapter.ProductHolder>() {
 
     override fun getItemCount(): Int {
         return products.count()
