@@ -9,6 +9,7 @@ import com.example.baptiste.coderswag.Adapters.ProductsAdapter
 import com.example.baptiste.coderswag.R
 import com.example.baptiste.coderswag.Services.DataService
 import com.example.baptiste.coderswag.Utilities.EXTRA_CATEGORY
+import com.example.baptiste.coderswag.Utilities.EXTRA_POSITION
 import com.example.baptiste.coderswag.Utilities.EXTRA_PRODUCT
 import kotlinx.android.synthetic.main.activity_products.*
 
@@ -22,9 +23,12 @@ class ProductsActivity : AppCompatActivity() {
 
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
 
+
         adapter = ProductsAdapter(this, DataService.getProducts(categoryType)){product ->
             val detailIntent = Intent(this, DetailActivity::class.java )
             detailIntent.putExtra(EXTRA_PRODUCT, product.title)
+            detailIntent.putExtra(EXTRA_POSITION, DataService.getProducts(categoryType).indexOf(product))
+
             startActivity(detailIntent)
         }
 

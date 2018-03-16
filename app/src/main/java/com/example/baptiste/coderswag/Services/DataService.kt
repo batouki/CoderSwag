@@ -72,4 +72,10 @@ object DataService {
             else -> digitalGood
         }
     }
+
+    fun getProduct(product: String) :Product{
+        return when(product){
+
+        }
+    }
 }
