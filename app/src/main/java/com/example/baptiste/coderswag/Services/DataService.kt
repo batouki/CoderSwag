@@ -73,9 +73,6 @@ object DataService {
         }
     }
 
-    fun getProduct(product: String) :Product{
-        return when(product){
 
-        }
-    }
+
 }

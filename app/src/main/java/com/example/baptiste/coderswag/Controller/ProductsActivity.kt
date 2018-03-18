@@ -26,8 +26,9 @@ class ProductsActivity : AppCompatActivity() {
 
         adapter = ProductsAdapter(this, DataService.getProducts(categoryType)){product ->
             val detailIntent = Intent(this, DetailActivity::class.java )
+            val position = DataService.getProducts(categoryType).indexOf(product)
             detailIntent.putExtra(EXTRA_PRODUCT, product.title)
-            detailIntent.putExtra(EXTRA_POSITION, DataService.getProducts(categoryType).indexOf(product))
+            detailIntent.putExtra(EXTRA_POSITION, position)
 
             startActivity(detailIntent)
         }

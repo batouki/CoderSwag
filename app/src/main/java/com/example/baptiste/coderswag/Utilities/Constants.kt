@@ -5,4 +5,4 @@ package com.example.baptiste.coderswag.Utilities
  */
 const val EXTRA_CATEGORY = "category"
 const val EXTRA_PRODUCT = "product"
-const val EXTRA_POSITION :Int = 0
+const val EXTRA_POSITION = "position"
