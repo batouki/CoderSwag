@@ -40,6 +40,7 @@ class ProductsAdapter(val context: Context, val products: List<Product>, val ite
             productImage?.setImageResource(resourceId)
             productName?.text = product.title
             productPrice?.text = product.price
+            itemView.setOnClickListener { itemclick(product) }
         }
     }
 }

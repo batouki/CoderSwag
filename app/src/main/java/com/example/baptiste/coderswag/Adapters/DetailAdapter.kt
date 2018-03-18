@@ -76,6 +76,7 @@ class DetailAdapter(val context: Context, val product: Product) : RecyclerView.A
             productImage?.setImageResource(resourceId)
             productName?.text = product.title
             productPrice?.text = product.price
+
         }
     }
 }

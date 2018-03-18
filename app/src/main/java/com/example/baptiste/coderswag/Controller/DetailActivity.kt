@@ -18,7 +18,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val productType = intent.getStringExtra(EXTRA_PRODUCT)
+
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
         val positionProduct = intent.getStringExtra(EXTRA_POSITION).toInt()
 
